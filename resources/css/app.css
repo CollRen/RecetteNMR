@@ -1,0 +1,10 @@
+@import url("./base/typography.css");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+.active {
+    color: blue ;
+}

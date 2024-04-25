@@ -1,0 +1,49 @@
+@font-face {
+    font-family: "LemonTuesday";
+    src: url("../../fonts/lemon_tuesday/Lemon Tuesday.otf");
+}
+@font-face {
+    font-family: "Exo";
+    src: url("../../fonts/Exo/Exo-VariableFont_wght.ttf");
+}
+@font-face {
+    font-family: "Galada";
+    src: url("../../fonts/Galada/Galada-Regular.ttf");
+}
+@font-face {
+    font-family: "Nobile";
+    src: url("../../fonts/Nobile/Nobile-Bold.ttf");
+}
+@font-face {
+    font-family: "Workital";
+    src: url("../../fonts/Work_Sans/WorkSans-Italic-VariableFont_wght.ttf");
+}
+@font-face {
+    font-family: "Work";
+    src: url("../../fonts/Work_Sans/WorkSans-VariableFont_wght.ttf");
+}
+
+:root {
+    --police-principale: "Nobile";
+}
+
+h1, h2 {
+    font-family: "Galada";
+}
+
+h2>:first-child, p {
+    font-family: "Nobile";
+}
+
+a, h3, h4, button {
+    font-family: "Exo";
+}
+
+.btn {
+    font-family: "Exo";
+
+}
+
+h5 {
+    font-family: "Work";
+}

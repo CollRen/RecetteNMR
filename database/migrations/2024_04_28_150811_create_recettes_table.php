@@ -9,25 +9,27 @@ return new class extends Migration
     /**
      * Run the migrations.
      */
-    public function up()
+   public function up(): void
     {
-        Schema::create('tasks', function (Blueprint $table) {
+        Schema::create('recettes', function (Blueprint $table) {
             $table->id();
-            $table->string('title');
-            $table->text('description')->nullable();
-            $table->boolean('completed')->default(0);
-            $table->date('due_date')->nullable();
+            $table->string('titre');
+            $table->text('description');
+            $table->double('temps_preparation');
+            $table->double('temps_cuisson');
             $table->unsignedBigInteger('user_id');
+            $table->unsignedBigInteger('category_id');
             $table->timestamps();
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
-            $table->foreign('category_id')->references('id')->on('category')->onDelete('cascade');
+            $table->foreign('category_id')->references('id')->on('categories')->onDelete('cascade');
         });
     }
+
     /**
      * Reverse the migrations.
      */
     public function down(): void
     {
-        Schema::dropIfExists('tasks');
+        Schema::dropIfExists('recettes');
     }
 };

@@ -2,20 +2,17 @@
 
 namespace Database\Seeders;
 
-use App\Models\Task;
+use App\Models\Ingredient;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 
-class TasksTableSeeder extends Seeder
+class IngredientsSeeder extends Seeder
 {
     /**
      * Run the database seeds.
      */
     public function run(): void
     {
-
-        Task::factory(20)->create();
+        //
     }
-
- 
 }

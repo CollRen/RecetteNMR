@@ -2,22 +2,17 @@
 
 namespace Database\Seeders;
 
-use App\Models\Category;
+use App\Models\Recette;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 
-class CategoryTableSeeder extends Seeder
+class RecetteSeeder extends Seeder
 {
     /**
      * Run the database seeds.
      */
     public function run(): void
     {
-        Category::factory(1)->create();
-
-        
-
+        Recette::factory(20)->create();
     }
-
- 
 }

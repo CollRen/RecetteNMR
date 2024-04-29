@@ -26,4 +26,9 @@ class Ingredient extends Model
         $data = json_encode($resource);
         return json_decode($data, true);
     }
+
+    public function recettes()
+    {
+        return $this->belongsToMany(Recette::class);
+    }
 }

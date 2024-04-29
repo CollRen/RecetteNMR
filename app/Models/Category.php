@@ -13,8 +13,8 @@ class Category extends Model
 
     protected $fillable = ['category'];
 
-    public function tasks(){
-        return $this->hasMany(Task::class);
+    public function recettes(){
+        return $this->hasMany(Recette::class);
     }
 
     protected function category(): Attribute

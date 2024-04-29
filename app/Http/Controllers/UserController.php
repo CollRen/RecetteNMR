@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\User;
-use App\Models\Task;
+use App\Models\Recette;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
@@ -26,15 +26,15 @@ class UserController extends Controller
         $users = User::select()
             ->orderby('name')
             ->paginate(10);
-        $tasks = Task::all();
-        return view('user.index', ["users" => $users, "tasks" => $tasks]);
+       
+        return view('user.index', ["users" => $users]);
     }
 
     public function index2()
     {
         // Set variables in the extended controller
         $this->users = User::all();
-        $this->exams = Task::all();
+        $this->exams = Recette::all();
 
         // Pass the data to the Blade view using $this->data
         return view('user.index2', $this->data);
@@ -106,10 +106,10 @@ class UserController extends Controller
     }
 
     /**
-     * Get the tasks for the user.
+     * Get the recettes for the user.
      */
-    public function tasks(): HasMany
+    public function recettes(): HasMany
     {
-        return $this->hasMany(Task::class);
+        return $this->hasMany(Recette::class);
     }
 }

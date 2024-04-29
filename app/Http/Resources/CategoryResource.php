@@ -16,7 +16,7 @@ class CategoryResource extends JsonResource
     {
         return [
             'id' => $this->id,
-            'category' => isset($this->category[app()->getLocale()]) ? $this->category[app()->getLocale()] : $this->category['en']
+            'nom' => isset($this->category[app()->getLocale()]) ? $this->category[app()->getLocale()] : $this->category['en']
         ];
     }
     

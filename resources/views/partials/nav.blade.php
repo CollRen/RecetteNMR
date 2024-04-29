@@ -1,4 +1,4 @@
-  {{-- @php $locale = session()->get('locale'); @endphp --}}
+  @php $locale = session()->get('locale'); @endphp
   <nav class="flex items-center justify-between p-6 lg:px-8" aria-label="Global">
       <div class="flex lg:flex-1">
           <a href="/" class="-m-1.5 p-1.5">
@@ -76,11 +76,20 @@
 
 
       </div>
-      <div class="hidden lg:flex lg:flex-1 lg:justify-end">
-          <a href="{{ route('login') }}"
-              class="text-sm font-semibold leading-6  clr-sec2 {{ request()->is('login') ? 'text-red-900 underline' : 'text-gray-900' }}">@lang('Login')
-              <span aria-hidden="true">&rarr;</span></a>
-      </div>
+    @auth
+        <!-- Si l'utilisateur est authentifié, affichez le lien Logout -->
+        <div class="hidden lg:flex lg:flex-1 lg:justify-end">
+            <form method="POST" action="{{ route('logout') }}">
+                @csrf
+                <button type="submit" class="text-sm font-semibold leading-6 clr-sec2">Logout<span aria-hidden="true">&rarr;</span></button>
+            </form>
+        </div>
+    @else
+        <!-- Sinon, affichez le lien Login -->
+        <div class="hidden lg:flex lg:flex-1 lg:justify-end">
+            <a href="{{ route('login') }}" class="text-sm font-semibold leading-6 clr-sec2">Login <span aria-hidden="true">&rarr;</span></a>
+        </div>
+    @endauth
 
 
   </nav>

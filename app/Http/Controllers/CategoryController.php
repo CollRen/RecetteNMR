@@ -40,7 +40,7 @@ class CategoryController extends Controller
         if($request->category_fr != null) { $category = $category + ['fr' => $request->category_fr];};
         
         Category::create([
-            'category' => $category
+            'nom' => $category
         ]);
         return back()->withSuccess('Category created successfully!');
     }
@@ -78,7 +78,7 @@ class CategoryController extends Controller
         ];
         
         $category->update([
-            'category' => $laCategory
+            'nom' => $laCategory
         ]);
 
         return redirect()->route('category.edit', $category->id)->with('success', 'Category updated successfully.');

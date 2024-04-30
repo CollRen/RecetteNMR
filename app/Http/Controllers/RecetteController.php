@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use App\Http\Requests\StorerecetteRequest;
 use App\Http\Requests\UpdaterecetteRequest;
 use App\Models\recette;
+use App\Models\Category;
+use App\Models\Ingredient;
 
 class RecetteController extends Controller
 {
@@ -21,7 +23,11 @@ class RecetteController extends Controller
      */
     public function create()
     {
-        //
+        $this->categories = Category::all();
+        $this->ingredients = Ingredient::all();
+        
+
+        return view('recette.create', $this->data);
     }
 
     /**
@@ -29,7 +35,19 @@ class RecetteController extends Controller
      */
     public function store(StorerecetteRequest $request)
     {
-        //
+        $categories = 
+        $recette = new Recette();
+        $recette->titre = $request->titre;
+        $recette->description = $request->description;
+        $recette->temps_cuisson = $request->temps_cuisson;
+        $recette->temps_preparation = $request->temps_preparation;
+        $recette->difficulte = $request->difficulte;
+        $recette->prix = $request->prix;
+        $recette->save();
+
+        $recette->categories()->attach($categories);
+
+        return view('recette.show', compact('recette'));
     }
 
     /**

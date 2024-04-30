@@ -7,6 +7,8 @@ use App\Http\Controllers\UserController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\SetLocaleController;
 use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\IngredientController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -20,6 +22,9 @@ use App\Http\Controllers\CategoryController;
 */
 
 Route::get('/lang/{locale}', [SetLocaleController::class, 'index'])->name('lang');
+
+Route::resource("/ingredient", IngredientController::class);
+Route::resource("/recette", RecetteController::class);
 
 Route::get('/task/create', [TaskController::class, 'create'])->name('task.create');
 Route::post('/task/create', [TaskController::class, 'store'])->name('task.store');

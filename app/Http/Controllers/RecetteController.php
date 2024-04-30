@@ -7,6 +7,7 @@ use App\Http\Requests\UpdaterecetteRequest;
 use App\Models\recette;
 use App\Models\Category;
 use App\Models\Ingredient;
+use App\Models\User;
 
 class RecetteController extends Controller
 {
@@ -15,7 +16,12 @@ class RecetteController extends Controller
      */
     public function index()
     {
-        //
+        $this->categories = Category::all();
+        $this->recettes = Recette::all();
+        $this->users = User::all();
+
+        return view('recette.index', $this->data);
+
     }
 
     /**
@@ -55,7 +61,11 @@ class RecetteController extends Controller
      */
     public function show(recette $recette)
     {
-        //
+        $this->recette = Recette::find($recette->id);
+        $this->category = Category::find($recette->category_id);
+        $this->auteur = User::find($recette->user_id)->name;
+
+        return view('recette.show', $this->data);
     }
 
     /**

@@ -6,16 +6,15 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Casts\Attribute;
 use App\Http\Resources\CategoryResource;
+use Illuminate\Database\Eloquent\Relations\HasMany;
+use Illuminate\Database\Eloquent\Relations\HasOne;
+
 
 class Category extends Model
 {
     use HasFactory;
 
     protected $fillable = ['nom'];
-
-    public function recettes(){
-        return $this->hasMany(Recette::class);
-    }
 
     /**
      * Doit être nommé de la même façon que la colonne de la DB à laquelle la fonction se rapporte
@@ -34,4 +33,10 @@ class Category extends Model
         $data = json_encode($resource);
         return json_decode($data, true);
     }
+
+    public function recettes(): HasMany
+    {
+        return $this->hasMany(Recette::class);
+    }
+
 }

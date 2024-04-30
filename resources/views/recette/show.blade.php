@@ -12,7 +12,7 @@
                     <p class="mb-0">{{ $recette->description }}</p>
                     <ul class="list-unstyled">
                         <li><strong>Completed:</strong> {{ $recette->completed ? 'Yes' : 'No' }}</li>
-                        <li><strong>Due Date:</strong> {{ $recette->due_date }}</li>
+                        <li><strong>Temps de préparation:</strong> {{ $recette->due_date }}</li>
 {{--                         <li><strong>Author:</strong> {{ $recette->user->name }}</li> pour l'instant ça marche pas --}}
                         <li><strong>Ingredient:</strong>
                             {{ $recette->ingredient ? $recette->ingredient->ingredient[app()->getLocale()] ?? $recette->ingredient->ingredient['en'] : '' }}

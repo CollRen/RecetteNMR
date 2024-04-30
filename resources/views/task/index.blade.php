@@ -13,7 +13,7 @@
                         <p class="mb-0">{{ $task->description }}</p>
                         <ul class="list-unstyled">
                             <li><strong>Completed:</strong> {{ $task->completed ? 'Yes' : 'No' }}</li>
-                            <li><strong>Due Date:</strong> {{ $task->due_date }}</li>
+                            <li><strong>Temps de préparation:</strong> {{ $task->due_date }}</li>
                             @isset($task->category)
                                 <li><strong>Category</strong>
                                     {{ $task->category->category[app()->getLocale()] ?? $task->category->category['en'] }}</li>

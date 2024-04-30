@@ -41,7 +41,7 @@
                             @endif
                         </div>
                         <div>
-                            <label for="due_date">Due Date</label>
+                            <label for="due_date">Temps de préparation</label>
                             <input type="date" id="due_date" name="due_date" value="{{ old('due_date', $recette->due_date) }}">
                             @if ($errors->has('due_date'))
                                 <div>

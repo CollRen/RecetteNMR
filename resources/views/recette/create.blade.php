@@ -32,7 +32,7 @@
                         </div>
 
                         <div>
-                            <label for="temps_preparation">Due Date</label>
+                            <label for="temps_preparation">Temps de préparation</label>
                             <input type="number" id="temps_preparation" name="temps_preparation"
                                 value="{{ old('temps_preparation') }}">
                             @if ($errors->has('temps_preparation'))
@@ -43,7 +43,7 @@
                         </div>
 
                         <div>
-                            <label for="temps_cuisson">Due Date</label>
+                            <label for="temps_cuisson">Temps de cuisson</label>
                             <input type="number" id="temps_cuisson" name="temps_cuisson"
                                 value="{{ old('temps_cuisson') }}">
                             @if ($errors->has('temps_cuisson'))

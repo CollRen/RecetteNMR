@@ -8,7 +8,7 @@ use App\Http\Controllers\AuthController;
 use App\Http\Controllers\SetLocaleController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\IngredientController;
-use App\Http\Controllers\RecetteController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -52,7 +52,8 @@ Route::get('/edit/user/{user}', [UserController::class, 'edit'])->name('user.edi
 
 Route::get('/login', [AuthController::class, 'create'])->name('login');
 Route::post('/login', [AuthController::class, 'store'])->name('login.store');
-Route::get('/logout', [AuthController::class, 'destroy'])->name('logout');
+Route::post('/logout', [AuthController::class, 'destroy'])->name('logout');
+
 
 /**
  * Ces routes peuvent sevir de template

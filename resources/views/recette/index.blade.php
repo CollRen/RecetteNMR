@@ -2,7 +2,7 @@
 @section('title', trans('lang.recipes'))
 
 @section('content')
-@php $locale = Config::get('app.locale') @endphp
+
 
 
 {{-- @foreach ($recettes as $recette)

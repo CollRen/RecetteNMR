@@ -47,8 +47,6 @@ class RecetteController extends Controller
         $recette->description = $request->description;
         $recette->temps_cuisson = $request->temps_cuisson;
         $recette->temps_preparation = $request->temps_preparation;
-        $recette->difficulte = $request->difficulte;
-        $recette->prix = $request->prix;
         $recette->save();
 
         $recette->categories()->attach($categories);

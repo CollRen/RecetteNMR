@@ -6,8 +6,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Casts\Attribute;
 use App\Http\Resources\CategoryResource;
-use Illuminate\Database\Eloquent\Relations\HasMany;
-use Illuminate\Database\Eloquent\Relations\HasOne;
+use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 
 
 class Category extends Model
@@ -34,9 +33,9 @@ class Category extends Model
         return json_decode($data, true);
     }
 
-    public function recettes(): HasMany
+    public function recettes(): BelongsToMany
     {
-        return $this->hasMany(Recette::class);
+        return $this->belongsToMany(Recette::class);
     }
 
 }

@@ -55,10 +55,10 @@
 
                                 <label for="ingredient_id">Recette Ingredient</label>
                                 <select name="ingredient_id" id="ingredient_id">
-                                    <option value="">Select a Recette Ingredient</option>
+                                    <option value="">Ingrédients</option>
 
                                     @foreach ($ingredients as $ingredient)
-                                        <option value="{{ $ingredient['id'] }}">{{ $ingredient['nom']['en'] }}</option>
+                                        <option value="{{ $ingredient['id'] }}">{{ $ingredient['nom'][$locale] }}</option>
 
                                         @if ($ingredient['id'] == old('ingredient_id'))
                                             selected
@@ -80,11 +80,10 @@
                                     <option value="">Select a Recette category</option>
 
                                     @foreach ($categories as $category)
-                                        <option value="{{ $category['id'] }}">{{ $category['nom']['en'] }}</option>
+                                        <option value="{{ $category['id'] }}">{{ $category['nom'][$locale] }}</option>
 
-                                        @if ($category['id'] == old('category_id'))
-                                            selected
-                                        @endif>{{ $category['category'] }}
+                                        @selected($category['id'] == old('category_id'))
+                                        @endselected>{{ $category['category'] }}
                                         </option>
                                     @endforeach
                                 </select>

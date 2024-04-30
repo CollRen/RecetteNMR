@@ -1,110 +1,133 @@
 @extends('partials.base')
-
-@section('titre', trans('Pricing'))
+@section('title', 'Titre de la recette')
+@section('titre', 'Titre de la recette')
 
 @section('content')
+        <div class="relative h-96 mb-8">
+            <img src="{{ Vite::asset('resources/img/legumes.jpg') }}" alt="Recette" class="absolute inset-0 w-full h-full object-cover object-center rounded-lg">
+        </div>
+    <div class="mx-auto max-w-2xl py-8 sm:py-12 lg:py-16">
 
-<body>
-<div class="mt-24">
-  
-  <main class="max-w-6xl mx-auto pt-10 pb-36 px-8">
-  
-    <div class="max-w-md mx-auto mb-14 text-center">
-      <h1 class="text-4xl font-semibold mb-6 lg:text-5xl"><span class="text-clr-pri2">Plans</span>Flexibles </h1>
-      <p class="text-xl text-clr-pri1 font-medium">@lang(trans('Choose your plan'))</p>
+        <div class="mt-8">
+            <p>La vidéo complète de la préparation de la recette</p>
+        </div>
+        <div class="mt-8 flex justify-center gap-x-6">
+            <button class="rounded-md bg-clr-pri2 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-clr-sec2 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-clr-pri2">Sauvegarder</button>
+            <button class="rounded-md bg-clr-pri2 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-clr-sec2 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-clr-pri2">Imprimer</button>
+            <button class="rounded-md bg-clr-pri2 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-clr-sec2 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-clr-pri2">Partager</button>
+        </div>
+        <div class="mt-8">
+            <h2 class="text-xl font-semibold">Informations :</h2>
+            <ul class="mt-4 flex justify-between">
+                <li>Temps: X minutes</li>
+                <li>Difficulté: Facile/Moyenne/Difficile</li>
+                <li>Estimation de prix: X €</li>
+            </ul>
+        </div>
+        <div class="mt-8">
+            <h2 class="text-xl font-semibold">Ingrédients :</h2>
+            <div class="mt-4 flex items-center">
+                <span>Nombre de personnes:</span>
+                <button class="ml-2 px-2 py-1 border border-gray-300 rounded">-</button>
+                <span class="px-2 py-1 border border-gray-300">1</span>
+                <button class="px-2 py-1 border border-gray-300 rounded">+</button>
+            </div>
+            <ul class="mt-4">
+                <li>Ingrédient 1: X unités</li>
+                <li>Ingrédient 2: Y unités</li>
+            </ul>
+        </div>
+
+        <div class="mt-8">
+            <h2 class="text-xl font-semibold">Étapes de préparation :</h2>
+            <ol class="list-decimal pl-6 mt-4">
+                <li>Étape 1</li>
+                <li>Étape 2</li>
+                <li>Étape 3</li>
+            </ol>
+        </div>
+        <div class="mt-8 flex justify-center gap-x-6">
+            <button class="rounded-md bg-clr-pri2 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-clr-sec2 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-clr-pri2">Modifier la recette</button>
+            <button class="rounded-md bg-red-600 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-red-700 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-red-600">Supprimer la recette</button>
+        </div>
     </div>
-  
-    <div class="flex flex-col justify-between items-center lg:flex-row lg:items-start">
-  
-      <div class="w-full flex-1 mt-8 p-8 order-2 bg-white shadow-xl rounded-3xl sm:w-96 lg:w-full lg:order-1 lg:rounded-r-none">
-        <div class="mb-7 pb-7 flex items-center border-b border-clr-pale1">
-          <img src="https://res.cloudinary.com/williamsondesign/abstract-1.jpg"  alt="" class="rounded-3xl w-20 h-20" />
-          <div class="ml-5">
-            <span class="block text-2xl font-semibold">Utilisateur</span>
-            <span><span class="font-medium text-clr-pri1 text-xl align-top">$&thinsp;</span><span class="text-3xl font-bold">10 </span></span><span class="text-clr-pri1 font-medium">/ utilisateur</span>
-          </div>
-        </div>
-        <ul class="mb-7 font-medium text-clr-pri1">
-          <li class="flex text-lg mb-2">
-            <img src="https://res.cloudinary.com/williamsondesign/check-grey.svg" />
-            <span class="ml-3">Débutant en création de <span class="text-black">recette</span></span>
-          </li>
-          <li class="flex text-lg mb-2">
-            <img src="https://res.cloudinary.com/williamsondesign/check-grey.svg" />
-            <span class="ml-3">Création <span class="text-black">Flexible</span></span>
-          </li>
-          <li class="flex text-lg">
-            <img src="https://res.cloudinary.com/williamsondesign/check-grey.svg" />
-            <span class="ml-3"><span class="text-black">5 TB</span> données en nuage</span>
-          </li>
-        </ul>
-        <a href="#/" class="flex justify-center items-center bg-clr-pri2 rounded-xl py-5 px-4 text-center text-clr-sec1 text-xl">
-          Choisir
-          <img src="{{Vite::asset('resources/img/arrow-right.svg')}}" class="ml-2" />
-        </a>
-      </div>
-  
-      <div class="w-full flex-1 p-8 order-1 shadow-xl rounded-3xl bg-gray-900 text-gray-400 sm:w-96 lg:w-full lg:order-2 lg:mt-0">
-        <div class="mb-8 pb-8 flex items-center border-b border-clr-pri1">
-          <img src="https://res.cloudinary.com/williamsondesign/abstract-2.jpg"  alt="" class="rounded-3xl w-20 h-20" />
-          <div class="ml-5">
-            <span class="block text-3xl font-semibold text-clr-pale">Base plus</span>
-            <span><span class="font-medium text-xl align-top">$&thinsp;</span><span class="text-3xl font-bold text-clr-pale">24 </span></span><span class="font-medium">/ utilisateur</span>
-          </div>
-        </div>
-        <ul class="mb-10 font-medium text-xl">
-          <li class="flex mb-6">
-            <img src="https://res.cloudinary.com/williamsondesign/check-white.svg" />
-            <span class="ml-3">Tout du fortait <span class="text-clr-pale">Base</span></span>
-          </li>
-          <li class="flex mb-6">
-            <img src="https://res.cloudinary.com/williamsondesign/check-white.svg" />
-            <span class="ml-3">@lang('Accès aux ingrédients')<span class="text-clr-pale"> Flexible</span></span>
-          </li>
-          <li class="flex">
-            <img src="https://res.cloudinary.com/williamsondesign/check-white.svg" />
-            <span class="ml-3"><span class="text-clr-pale">Illimité</span> Recette des autres utilisateur</span>
-          </li>
-        </ul>
-        <a href="#/" class="flex justify-center items-center bg-clr-pri1 rounded-xl py-6 px-4 text-center text-clr-sec1 text-2xl">
-          Choisir
-          <img src="{{Vite::asset('resources/img/arrow-right.svg')}}" class="ml-2" />
-        </a>
-      </div>
-  
-      <div class="w-full flex-1 mt-8 p-8 order-3 bg-white shadow-xl rounded-3xl sm:w-96 lg:w-full lg:order-3 lg:rounded-l-none">
-        <div class="mb-7 pb-7 flex items-center border-b border-clr-pale1">
-          <img src="https://res.cloudinary.com/williamsondesign/abstract-3.jpg"  alt="" class="rounded-3xl w-20 h-20" />
-          <div class="ml-5">
-            <span class="block text-2xl font-semibold">Base ++</span>
-            <span><span class="font-medium text-clr-pri1 text-xl align-top">$&thinsp;</span><span class="text-3xl font-bold">35 </span></span><span class="text-clr-pri1 font-medium">/ utilisateur</span>
-          </div>
-        </div>
-        <ul class="mb-7 font-medium text-clr-pri1">
-          <li class="flex text-lg mb-2">
-            <img src="https://res.cloudinary.com/williamsondesign/check-grey.svg" />
-            <span class="ml-3">Tout du forfait <span class="text-black">Base +</span></span>
-          </li>
-          <li class="flex text-lg mb-2">
-            <img src="https://res.cloudinary.com/williamsondesign/check-grey.svg" />
-            <span class="ml-3">Créateur <span class="text-black">EXTRA</span></span>
-          </li>
-          <li class="flex text-lg">
-            <img src="https://res.cloudinary.com/williamsondesign/check-grey.svg" />
-            <span class="ml-3"><span class="text-black">Nombre illimité de recette</span> Sans limite</span>
-          </li>
-        </ul>
-        <a href="#/" class="flex justify-center items-center bg-clr-pri2 rounded-xl py-5 px-4 text-center text-clr-sec1 text-xl">
-          Choisir
-          <img src="{{Vite::asset('resources/img/arrow-right.svg')}}" class="ml-2" />
-        </a>
-      </div>
-  
-    </div>
-  
-</div>
-</main>
-</body>
 @endsection
-</html>
 
+
+
+
+
+
+
+
+{{-- Autres Modele --}}
+
+
+
+{{-- @extends('partials.base')
+@section('title', 'Titre de la recette')
+@section('titre', 'Titre de la recette')
+
+@section('content')
+    <div class="mx-auto max-w-2xl py-32 sm:py-48 lg:py-56">
+        <h1 class="text-4xl font-bold tracking-tight text-gray-900 sm:text-6xl">Titre de la recette</h1>
+        <img src="example_image_url" alt="Recette" class="mt-6 rounded-lg">
+        <p class="mt-6 text-lg leading-8 text-clr-pri1">Description de la recette</p>
+        
+        <h2 class="mt-10 text-2xl font-semibold">Ingrédients :</h2>
+        <ul class="list-disc pl-6 mt-4">
+            <li>Ingrédient 1</li>
+            <li>Ingrédient 2</li>
+            <li>Ingrédient 3</li>
+        </ul>
+        
+        <h2 class="mt-10 text-2xl font-semibold">Étapes de préparation :</h2>
+        <ol class="list-decimal pl-6 mt-4">
+            <li>Étape 1</li>
+            <li>Étape 2</li>
+            <li>Étape 3</li>
+        </ol>
+        
+        <div class="mt-10 flex items-center justify-center gap-x-6">
+            <a href="#" class="rounded-md bg-clr-pri2 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-clr-sec2 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-clr-pri2">Modifier la recette</a>
+            <a href="#" class="text-sm font-semibold leading-6 text-gray-900">Supprimer la recette</a>
+        </div>
+    </div>
+@endsection --}}
+
+
+
+{{-- @extends('partials.base')
+@section('title', $recipe->title)
+@section('titre', $recipe->title)
+
+@section('content')
+    <div class="mx-auto max-w-2xl py-32 sm:py-48 lg:py-56">
+        <h1 class="text-4xl font-bold tracking-tight text-gray-900 sm:text-6xl">{{ $recipe->title }}</h1>
+        <img src="{{ Vite::asset($recipe->image) }}" alt="{{ $recipe->title }}" class="mt-6 rounded-lg">
+        <p class="mt-6 text-lg leading-8 text-clr-pri1">{{ $recipe->description }}</p>
+        
+        <h2 class="mt-10 text-2xl font-semibold">Ingrédients :</h2>
+        <ul class="list-disc pl-6 mt-4">
+            @foreach($recipe->ingredients as $ingredient)
+                <li>{{ $ingredient }}</li>
+            @endforeach
+        </ul>
+        
+        <h2 class="mt-10 text-2xl font-semibold">Étapes de préparation :</h2>
+        <ol class="list-decimal pl-6 mt-4">
+            @foreach($recipe->steps as $step)
+                <li>{{ $step }}</li>
+            @endforeach
+        </ol>
+        
+        <div class="mt-10 flex items-center justify-center gap-x-6">
+            <a href="{{ route('recipe.edit', $recipe->id) }}" class="rounded-md bg-clr-pri2 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-clr-sec2 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-clr-pri2">Modifier la recette</a>
+            <form action="{{ route('recipe.destroy', $recipe->id) }}" method="POST">
+                @csrf
+                @method('DELETE')
+                <button type="submit" class="text-sm font-semibold leading-6 text-gray-900">Supprimer la recette</button>
+            </form>
+        </div>
+    </div>
+@endsection --}}

@@ -5,22 +5,14 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Casts\Attribute;
-use App\Http\Resources\CategoryResource;
+use App\Http\Resources\IngredientResource;
 
-class Category extends Model
+class Ingredient extends Model
 {
     use HasFactory;
 
     protected $fillable = ['nom'];
 
-    public function recettes(){
-        return $this->hasMany(Recette::class);
-    }
-
-    /**
-     * Doit être nommé de la même façon que la colonne de la DB à laquelle la fonction se rapporte
-     * 
-     */
     protected function nom(): Attribute
     {
         return Attribute::make(
@@ -29,9 +21,14 @@ class Category extends Model
         );
     }
 
-    static public function categories(){
-        $resource = CategoryResource::collection(self::select()->orderBy('nom')->get());
+    static public function ingredients(){
+        $resource = IngredientResource::collection(self::select()->orderBy('nom')->get());
         $data = json_encode($resource);
         return json_decode($data, true);
+    }
+
+    public function recettes()
+    {
+        return $this->belongsToMany(Recette::class);
     }
 }

@@ -11,15 +11,21 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('categories', function (Blueprint $table) {
+        Schema::create('etapes', function (Blueprint $table) {
             $table->id();
-            $table->json('nom');
+            $table->text('description');
+            $table->unsignedBiginteger('recette_id');
             $table->timestamps();
+            $table->foreign('recette_id')->references('id')
+                 ->on('recettes')->onDelete('cascade');
         });
     }
 
+    /**
+     * Reverse the migrations.
+     */
     public function down(): void
     {
-        Schema::dropIfExists('categories');
+        Schema::dropIfExists('etapes');
     }
 };

@@ -19,7 +19,7 @@
                     <h5 class="mb-3">Category</h5>
                 </div>
                 <div class="flex-auto p-6">
-                    <form  method="POST">
+                    <form action="{{ route('category.store') }}" method="POST">
                         @csrf
                         <div class="mb-3">
                             <label for="category_en" class="form-label">Category in English</label>

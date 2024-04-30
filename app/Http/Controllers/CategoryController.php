@@ -29,6 +29,7 @@ class CategoryController extends Controller
      */
     public function store(Request $request)
     {
+
         $request->validate([
             'category_en' => 'required|max:30',
             'category_fr' => 'required|max:30',
@@ -59,7 +60,7 @@ class CategoryController extends Controller
      */
     public function edit(Category $category)
     {   
-        return view('category.edit', ['category'=>$category['category']]);
+        return view('category.edit', ['category'=>$category]);
     }
 
     /**

@@ -14,8 +14,8 @@
 
           <a href="/"
               class="text-sm font-semibold leading-6  clr-sec2 {{ request()->is('/') ? 'text-red-900 underline' : 'text-gray-900' }}">@lang('Home')</a>
-          <a href="{{route('recette.index')}}"
-              class="text-sm font-semibold leading-6  clr-sec2 {{ request()->is('recettes') ? 'text-red-900 underline' : 'text-gray-900' }}">@lang('Recieps')</a>
+          <a href="{{route('category.index')}}"
+              class="text-sm font-semibold leading-6  clr-sec2 {{ request()->is('category') ? 'text-red-900 underline' : 'text-gray-900' }}">@lang('category')</a>
           <a href="/contact"
               class="text-sm font-semibold leading-6  clr-sec2 {{ request()->is('contact') ? 'text-red-900 underline' : 'text-gray-900' }}">Contact</a>
           {{--         <a href="#"

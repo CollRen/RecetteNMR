@@ -42,6 +42,7 @@ class AuthController extends Controller
     endif;
     $user = Auth::getProvider()->retrieveByCredentials($credentials);
     Auth::login($user);
+    session()->put('user', $user);
     return redirect()->intended(route('welcome'))->withSuccess('Signed in');
 }
 

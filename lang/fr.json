@@ -17,5 +17,7 @@
     "Home":"Accueil",
     "Choose your plan":"Choisissez votre plan",
     "Accès aux ingrédients":"Accès aux ingrédients",
-    "en":"en"
+    "en":"en",
+    "show-no-recette":"Il n'y a pas de recette à afficher",
+    "See Recipe":"Voir la recette"
 }

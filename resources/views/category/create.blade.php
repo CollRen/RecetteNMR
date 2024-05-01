@@ -11,6 +11,7 @@
         <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
     </div>                
     @endif
+    
     <h1 class="mt-5 mb-4">Category</h1>
     <div class="flex flex-wrap  justify-center mt-5 mb-5">
         <div class="md:w-1/3 pr-4 pl-4">

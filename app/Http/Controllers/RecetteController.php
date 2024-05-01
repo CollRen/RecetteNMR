@@ -44,15 +44,20 @@ class RecetteController extends Controller
      */
     public function store(StorerecetteRequest $request)
     {
-        $categories = 
+        $ingredients  = $request->ingredient_id;
+        $auteur = 1;
+
+        $category = $request->category;
         $recette = new Recette();
         $recette->titre = $request->titre;
         $recette->description = $request->description;
+        $recette->category_id = $request->category_id;
         $recette->temps_cuisson = $request->temps_cuisson;
         $recette->temps_preparation = $request->temps_preparation;
+        $recette->user_id = 1;
         $recette->save();
 
-        $recette->categories()->attach($categories);
+        $recette->ingredients()->attach($ingredients);
 
         return view('recette.show', compact('recette'));
     }

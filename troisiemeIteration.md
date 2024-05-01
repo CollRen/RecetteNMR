@@ -16,3 +16,9 @@
 ### Footer
 
 - Lien vers Recieps à traduire et mettre le même lien que dans la nav
+
+
+### BD
+
+Créer de bonne catégories
+

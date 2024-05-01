@@ -20,7 +20,7 @@
             <ul class="mt-4 flex justify-between">
                 <li>Temps de préparation: {{ $recette['temps_preparation'] }} minutes</li>
                 <li>Temps de cuisson: {{ $recette['temps_cuisson'] }} minutes</li>
-                <li>Auteur: {{ $auteur }}</li>
+                {{-- <li>Auteur: {{ $auteur }}</li> --}}
             </ul>
         </div>
         <div class="mt-8">

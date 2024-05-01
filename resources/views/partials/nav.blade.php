@@ -14,12 +14,10 @@
 
           <a href="/"
               class="text-sm font-semibold leading-6  clr-sec2 {{ request()->is('/') ? 'text-red-900 underline' : 'text-gray-900' }}">@lang('Home')</a>
-          <a href="/forfait"
-              class="text-sm font-semibold leading-6  clr-sec2 {{ request()->is('forfait') ? 'text-red-900 underline' : 'text-gray-900' }}">@lang('Pricing')</a>
+          <a href="/recettes"
+              class="text-sm font-semibold leading-6  clr-sec2 {{ request()->is('recettes') ? 'text-red-900 underline' : 'text-gray-900' }}">@lang('Recieps')</a>
           <a href="/contact"
               class="text-sm font-semibold leading-6  clr-sec2 {{ request()->is('contact') ? 'text-red-900 underline' : 'text-gray-900' }}">Contact</a>
-          <a href="/about"
-              class="text-sm font-semibold leading-6  clr-sec2 {{ request()->is('about') ? 'text-red-900 underline' : 'text-gray-900' }}">@lang('About')</a>
           {{--         <a href="#"
               class="text-sm font-semibold leading-6  clr-sec2 {{ request()->is('histoire') ? 'text-red-900 underline' : 'text-gray-900' }}">@lang('Our Story')</a> --}}
 

@@ -23,4 +23,10 @@ class Recette extends Model
     {
         return $this->hasOne(Category::class);
     }
+
+    public function etapes(): HasMany
+    {
+        return $this->hasMany(Etape::class);
+    }
+
 }

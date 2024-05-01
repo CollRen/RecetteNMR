@@ -9,6 +9,8 @@ use App\Http\Controllers\SetLocaleController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\IngredientController;
 use App\Http\Controllers\RecetteController;
+use App\Http\Controllers\EtapeController;
+
 
 
 /*
@@ -29,6 +31,8 @@ Route::resource("/recette", RecetteController::class);
 Route::get('/recette/{recette}/add-ingredient', [RecetteController::class, 'createAddIngredient'])->name('createAddIngredient');
 Route::post('/recette/{recette}/add-ingredient', [RecetteController::class, 'storeAddIngredient'])->name('storeAddIngredient');
 Route::resource("/category", CategoryController::class);
+Route::resource("/etapes", EtapeController::class);
+
 
 Route::get('/task/create', [TaskController::class, 'create'])->name('task.create');
 Route::post('/task/create', [TaskController::class, 'store'])->name('task.store');
@@ -90,10 +94,10 @@ Route::get('/', function () {
 })->name("welcome");
 
 
-Route::get('forfait', function () {
-    return view('forfait');
+Route::get('recette', function () {
+    return view('recette');
     // return view('index');
-})->name("forfait");
+})->name("recette");
 
 
 Route::get('contact', function () {
@@ -101,10 +105,10 @@ Route::get('contact', function () {
     // return view('index');
 })->name("contact");
 
-Route::get('about', function () {
-    return view('about');
+Route::get('recettes', function () {
+    return view('recettes');
     // return view('index');
-})->name("about");
+})->name("recettes");
 
 
 

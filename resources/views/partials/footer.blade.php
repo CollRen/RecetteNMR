@@ -1,7 +1,7 @@
 @php
-    
-$annee = date('Y');
-@endphp 
+
+    $annee = date('Y');
+@endphp
 <footer>
     <footer class="relative bg-clr-sec2 bg-opacity-5 pt-8 pb-6">
         <div class="container mx-auto px-4">
@@ -16,7 +16,7 @@ $annee = date('Y');
                             class="bg-white text-clr-pri1 shadow-lg font-normal h-10 w-10 items-center justify-center align-center rounded-full outline-none focus:outline-none mr-2"
                             type="button">
                             <i class="fab fa-twitter"></i></button>
-                            <button
+                        <button
                             class="bg-white text-clr-pri1 shadow-lg font-normal h-10 w-10 items-center justify-center align-center rounded-full outline-none focus:outline-none mr-2"
                             type="button">
                             <i class="fab fa-facebook-square"></i></button><button
@@ -35,22 +35,25 @@ $annee = date('Y');
                             <span class="block uppercase text-clr-pri2 text-sm font-semibold mb-2">Liens utililes</span>
                             <ul class="list-unstyled">
                                 <li>
-                                    <a class="text-clr-pri1 hover:text-clr-pri1 font-semibold block pb-2 text-sm"
-                                        href="/about">@lang('About')</a>
+                                    <a href="/"
+                                        class="text-sm font-semibold leading-6  clr-sec2 {{ request()->is('/') ? 'text-red-900 underline' : 'text-gray-900' }}">@lang('Home')</a>
+
                                 </li>
                                 <li>
-                                    <a class="text-clr-pri1 hover:text-clr-pri1 font-semibold block pb-2 text-sm"
-                                        href="/forfait">@lang('Pricing')</a>
+                                    <a href="/recettes"
+                                        class="text-sm font-semibold leading-6  clr-sec2 {{ request()->is('recettes') ? 'text-red-900 underline' : 'text-gray-900' }}">@lang('Recieps')</a>
+
                                 </li>
                                 <li>
-                                    <a class="text-clr-pri1 hover:text-clr-pri1 font-semibold block pb-2 text-sm"
-                                        href="/">@lang('Home')</a>
+                                    <a href="/contact"
+                                        class="text-sm font-semibold leading-6  clr-sec2 {{ request()->is('contact') ? 'text-red-900 underline' : 'text-gray-900' }}">Contact</a>
                                 </li>
 
                             </ul>
                         </div>
                         <div class="w-full lg:w-4/12 px-4">
-                            <span class="block uppercase text-clr-pri2 text-sm font-semibold mb-2">Autres ressources</span>
+                            <span class="block uppercase text-clr-pri2 text-sm font-semibold mb-2">Autres
+                                ressources</span>
                             <ul class="list-unstyled">
                                 <li>
                                     <a class="text-clr-pri1 hover:text-clr-pri1 font-semibold block pb-2 text-sm"
@@ -75,8 +78,7 @@ $annee = date('Y');
                     <div class="text-sm text-clr-pri2 font-semibold py-1">
                         Copyright © <span id="get-current-year">@php
                             echo $annee;
-                        @endphp</span><a
-                            href="#"
+                        @endphp</span><a href="#"
                             class="text-clr-pri2 hover:text-gray-800" target="_blank"> Créé par
                             <a href="https://www.creative-tim.com?ref=njs-profile"
                                 class="text-clr-pri2 hover:text-clr-pri1">RDM WEB</a>.

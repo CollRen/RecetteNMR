@@ -1,15 +1,15 @@
 @extends('partials.base')
-@section('title', 'Titre de la recette')
-@section('titre', 'Titre de la recette')
+@section('title', 'Titre de la forfait')
+@section('titre', 'Titre de la forfait')
 
 @section('content')
         <div class="relative h-96 mb-8">
-            <img src="{{ Vite::asset('resources/img/legumes.jpg') }}" alt="Recette" class="absolute inset-0 w-full h-full object-cover object-center rounded-lg">
+            <img src="{{ Vite::asset('resources/img/legumes.jpg') }}" alt="forfait" class="absolute inset-0 w-full h-full object-cover object-center rounded-lg">
         </div>
     <div class="mx-auto max-w-2xl py-8 sm:py-12 lg:py-16">
 
         <div class="mt-8">
-            <p>La vidéo complète de la préparation de la recette</p>
+            <p>La vidéo complète de la préparation de la forfait</p>
         </div>
         <div class="mt-8 flex justify-center gap-x-6">
             <button class="rounded-md bg-clr-pri2 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-clr-sec2 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-clr-pri2">Sauvegarder</button>
@@ -47,8 +47,8 @@
             </ol>
         </div>
         <div class="mt-8 flex justify-center gap-x-6">
-            <button class="rounded-md bg-clr-pri2 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-clr-sec2 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-clr-pri2">Modifier la recette</button>
-            <button class="rounded-md bg-red-600 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-red-700 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-red-600">Supprimer la recette</button>
+            <button class="rounded-md bg-clr-pri2 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-clr-sec2 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-clr-pri2">Modifier la forfait</button>
+            <button class="rounded-md bg-red-600 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-red-700 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-red-600">Supprimer la forfait</button>
         </div>
     </div>
 @endsection
@@ -65,14 +65,14 @@
 
 
 {{-- @extends('partials.base')
-@section('title', 'Titre de la recette')
-@section('titre', 'Titre de la recette')
+@section('title', 'Titre de la forfait')
+@section('titre', 'Titre de la forfait')
 
 @section('content')
     <div class="mx-auto max-w-2xl py-32 sm:py-48 lg:py-56">
-        <h1 class="text-4xl font-bold tracking-tight text-gray-900 sm:text-6xl">Titre de la recette</h1>
-        <img src="example_image_url" alt="Recette" class="mt-6 rounded-lg">
-        <p class="mt-6 text-lg leading-8 text-clr-pri1">Description de la recette</p>
+        <h1 class="text-4xl font-bold tracking-tight text-gray-900 sm:text-6xl">Titre de la forfait</h1>
+        <img src="example_image_url" alt="forfait" class="mt-6 rounded-lg">
+        <p class="mt-6 text-lg leading-8 text-clr-pri1">Description de la forfait</p>
         
         <h2 class="mt-10 text-2xl font-semibold">Ingrédients :</h2>
         <ul class="list-disc pl-6 mt-4">
@@ -89,8 +89,8 @@
         </ol>
         
         <div class="mt-10 flex items-center justify-center gap-x-6">
-            <a href="#" class="rounded-md bg-clr-pri2 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-clr-sec2 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-clr-pri2">Modifier la recette</a>
-            <a href="#" class="text-sm font-semibold leading-6 text-gray-900">Supprimer la recette</a>
+            <a href="#" class="rounded-md bg-clr-pri2 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-clr-sec2 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-clr-pri2">Modifier la forfait</a>
+            <a href="#" class="text-sm font-semibold leading-6 text-gray-900">Supprimer la forfait</a>
         </div>
     </div>
 @endsection --}}
@@ -122,11 +122,11 @@
         </ol>
         
         <div class="mt-10 flex items-center justify-center gap-x-6">
-            <a href="{{ route('recipe.edit', $recipe->id) }}" class="rounded-md bg-clr-pri2 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-clr-sec2 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-clr-pri2">Modifier la recette</a>
+            <a href="{{ route('recipe.edit', $recipe->id) }}" class="rounded-md bg-clr-pri2 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-clr-sec2 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-clr-pri2">Modifier la forfait</a>
             <form action="{{ route('recipe.destroy', $recipe->id) }}" method="POST">
                 @csrf
                 @method('DELETE')
-                <button type="submit" class="text-sm font-semibold leading-6 text-gray-900">Supprimer la recette</button>
+                <button type="submit" class="text-sm font-semibold leading-6 text-gray-900">Supprimer la forfait</button>
             </form>
         </div>
     </div>

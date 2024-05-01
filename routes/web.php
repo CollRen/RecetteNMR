@@ -7,6 +7,11 @@ use App\Http\Controllers\UserController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\SetLocaleController;
 use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\IngredientController;
+use App\Http\Controllers\RecetteController;
+use App\Http\Controllers\EtapeController;
+
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -19,6 +24,12 @@ use App\Http\Controllers\CategoryController;
 */
 
 Route::get('/lang/{locale}', [SetLocaleController::class, 'index'])->name('lang');
+
+Route::resource("/ingredient", IngredientController::class);
+Route::resource("/recette", RecetteController::class);
+Route::resource("/category", CategoryController::class);
+Route::resource("/etapes", EtapeController::class);
+
 
 Route::get('/task/create', [TaskController::class, 'create'])->name('task.create');
 Route::post('/task/create', [TaskController::class, 'store'])->name('task.store');
@@ -46,12 +57,13 @@ Route::get('/edit/user/{user}', [UserController::class, 'edit'])->name('user.edi
 
 Route::get('/login', [AuthController::class, 'create'])->name('login');
 Route::post('/login', [AuthController::class, 'store'])->name('login.store');
-Route::get('/logout', [AuthController::class, 'destroy'])->name('logout');
+Route::post('/logout', [AuthController::class, 'destroy'])->name('logout');
+
 
 /**
  * Ces routes peuvent sevir de template
  */
-Route::prefix('/category')->name('category.')->group(function () {
+/* Route::prefix('/category')->name('category.')->group(function () {
 Route::get('/create', [CategoryController::class, 'create'])->name('create');
 Route::post('/create', [CategoryController::class, 'store'])->name('store');
 Route::get('/category', [CategoryController::class, 'index'])->name('index');
@@ -59,7 +71,7 @@ Route::get('/{category}', [CategoryController::class, 'show'])->name('show');
 Route::get('/edit/{category}', [CategoryController::class, 'edit'])->name('edit');
 Route::put('/edit/{category}', [CategoryController::class, 'update'])->name('update');
 Route::delete('/{category}', [CategoryController::class, 'destroy'])->name('delete');
-});
+}); */
 
 
 Route::get('/password/forgot', [UserController::class, 'forgot'])->name('user.forgot');
@@ -76,10 +88,10 @@ Route::get('/', function () {
 })->name("welcome");
 
 
-Route::get('forfait', function () {
-    return view('forfait');
+Route::get('recette', function () {
+    return view('recette');
     // return view('index');
-})->name("forfait");
+})->name("recette");
 
 
 Route::get('contact', function () {
@@ -87,10 +99,10 @@ Route::get('contact', function () {
     // return view('index');
 })->name("contact");
 
-Route::get('about', function () {
-    return view('about');
+Route::get('recettes', function () {
+    return view('recettes');
     // return view('index');
-})->name("about");
+})->name("recettes");
 
 
 

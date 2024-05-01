@@ -5,6 +5,9 @@ namespace App\Http\Controllers;
 use App\Http\Requests\StorerecetteRequest;
 use App\Http\Requests\UpdaterecetteRequest;
 use App\Models\recette;
+use App\Models\Category;
+use App\Models\Ingredient;
+use App\Models\User;
 
 class RecetteController extends Controller
 {
@@ -13,7 +16,12 @@ class RecetteController extends Controller
      */
     public function index()
     {
-        //
+        $this->categories = Category::all();
+        $this->recettes = Recette::all();
+        $this->users = User::all();
+
+        return view('recette.index', $this->data);
+
     }
 
     /**
@@ -21,7 +29,11 @@ class RecetteController extends Controller
      */
     public function create()
     {
-        //
+        $this->categories = Category::all();
+        $this->ingredients = Ingredient::all();
+        
+
+        return view('recette.create', $this->data);
     }
 
     /**
@@ -29,7 +41,17 @@ class RecetteController extends Controller
      */
     public function store(StorerecetteRequest $request)
     {
-        //
+        $categories = 
+        $recette = new Recette();
+        $recette->titre = $request->titre;
+        $recette->description = $request->description;
+        $recette->temps_cuisson = $request->temps_cuisson;
+        $recette->temps_preparation = $request->temps_preparation;
+        $recette->save();
+
+        $recette->categories()->attach($categories);
+
+        return view('recette.show', compact('recette'));
     }
 
     /**
@@ -37,7 +59,11 @@ class RecetteController extends Controller
      */
     public function show(recette $recette)
     {
-        //
+        $this->recette = Recette::find($recette->id);
+        $this->category = Category::find($recette->category_id);
+        $this->auteur = User::find($recette->user_id)->name;
+
+        return view('recette.show', $this->data);
     }
 
     /**

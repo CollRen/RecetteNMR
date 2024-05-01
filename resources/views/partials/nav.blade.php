@@ -1,4 +1,4 @@
-  {{-- @php $locale = session()->get('locale'); @endphp --}}
+
   <nav class="flex items-center justify-between p-6 lg:px-8" aria-label="Global">
       <div class="flex lg:flex-1">
           <a href="/" class="-m-1.5 p-1.5">
@@ -14,12 +14,10 @@
 
           <a href="/"
               class="text-sm font-semibold leading-6  clr-sec2 {{ request()->is('/') ? 'text-red-900 underline' : 'text-gray-900' }}">@lang('Home')</a>
-          <a href="/forfait"
-              class="text-sm font-semibold leading-6  clr-sec2 {{ request()->is('forfait') ? 'text-red-900 underline' : 'text-gray-900' }}">@lang('Pricing')</a>
+          <a href="/recettes"
+              class="text-sm font-semibold leading-6  clr-sec2 {{ request()->is('recettes') ? 'text-red-900 underline' : 'text-gray-900' }}">@lang('Recieps')</a>
           <a href="/contact"
               class="text-sm font-semibold leading-6  clr-sec2 {{ request()->is('contact') ? 'text-red-900 underline' : 'text-gray-900' }}">Contact</a>
-          <a href="/about"
-              class="text-sm font-semibold leading-6  clr-sec2 {{ request()->is('about') ? 'text-red-900 underline' : 'text-gray-900' }}">@lang('About')</a>
           {{--         <a href="#"
               class="text-sm font-semibold leading-6  clr-sec2 {{ request()->is('histoire') ? 'text-red-900 underline' : 'text-gray-900' }}">@lang('Our Story')</a> --}}
 
@@ -76,11 +74,20 @@
 
 
       </div>
-      <div class="hidden lg:flex lg:flex-1 lg:justify-end">
-          <a href="{{ route('login') }}"
-              class="text-sm font-semibold leading-6  clr-sec2 {{ request()->is('login') ? 'text-red-900 underline' : 'text-gray-900' }}">@lang('Login')
-              <span aria-hidden="true">&rarr;</span></a>
-      </div>
+    @auth
+        <!-- Si l'utilisateur est authentifié, affichez le lien Logout -->
+        <div class="hidden lg:flex lg:flex-1 lg:justify-end">
+            <form method="POST" action="{{ route('logout') }}">
+                @csrf
+                <button type="submit" class="text-sm font-semibold leading-6 clr-sec2">Logout<span aria-hidden="true">&rarr;</span></button>
+            </form>
+        </div>
+    @else
+        <!-- Sinon, affichez le lien Login -->
+        <div class="hidden lg:flex lg:flex-1 lg:justify-end">
+            <a href="{{ route('login') }}" class="text-sm font-semibold leading-6 clr-sec2">Login <span aria-hidden="true">&rarr;</span></a>
+        </div>
+    @endauth
 
 
   </nav>

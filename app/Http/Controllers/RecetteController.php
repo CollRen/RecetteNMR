@@ -79,7 +79,14 @@ class RecetteController extends Controller
      */
     public function edit(Recette $recette)
     {
-        //
+        $this->recette = Recette::find($recette->id);
+        $this->category = Category::find($recette->category_id);
+        $this->auteur = User::find($recette->user_id)->name;
+
+        $this->categories = Category::all();
+        $this->auteurs = User::all();
+
+        return view('recette.edit', $this->data);
     }
 
     /**

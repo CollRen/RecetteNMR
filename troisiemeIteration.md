@@ -1,13 +1,14 @@
 # Troisième itération
 
-## Changement à effectuer
+## Changements à effectuer
 
 ### Menu
+
 - Trduire Recieps dans la barre de menu
-- Ajouter 'Créer' qui mène vers création de recette
 
 
 ### Page d'accueil
+
 - Lien créer une recette sur la page d'accueil
 - Enlever le Read More page accueil à côté de ' Prédire l'avenir grâce à la nutrition '
 - Lien et phrase
@@ -20,5 +21,19 @@
 
 ### BD
 
-Créer de bonne catégories
+- Créer de bonne catégories
+
+### Design
+
+- Design de la page de création de recette
+
+
+### Éventuellement
+
+- Trouver la façon de mettre l'id de l'utilisateur dans user_id lors de la création de recette
+
+### CRUD
+
+- Effacer une recette
+-  Éditer une recette
 

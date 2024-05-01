@@ -46,8 +46,8 @@
             </ol>
         </div>
         <div class="mt-8 flex justify-center gap-x-6">
-            <button class="rounded-md bg-clr-pri2 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-clr-sec2 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-clr-pri2">Modifier la recette</button>
-            <button class="rounded-md bg-red-600 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-red-700 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-red-600">Supprimer la recette</button>
+            <a href=" @php echo $recette->id . '/edit' @endphp"><button class="rounded-md bg-clr-pri2 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-clr-sec2 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-clr-pri2">Modifier la recette</button></a>
+            <a href=""><button class="rounded-md bg-red-600 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-red-700 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-red-600">Supprimer la recette</button></a>
         </div>
     </div>
 @endsection

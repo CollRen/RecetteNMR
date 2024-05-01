@@ -1,6 +1,7 @@
 @extends('partials.base')
 @section('title', 'Edit Recette')
 @section('content')
+
     <h1>Edit Recette</h1>
     <div>
         <div>

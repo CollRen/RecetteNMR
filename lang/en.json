@@ -16,6 +16,8 @@
     "Home":"Home",
     "Choose your plan":"Choose your plan",
     "Accès aux ingrédients":"Ingredient access",
-    "en":"fr"
+    "en":"fr",
+    "show-no-recette":"There is nothing to display",
+    "See Recipe":"See Recipe"
 }
 

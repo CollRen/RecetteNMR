@@ -54,7 +54,7 @@
                             <div>
 
                                 <label for="ingredient_id">Recette Ingredient</label>
-                                <select name="ingredient_id" id="ingredient_id">
+                                <select name="ingredient_id[]" id="ingredient_id" multiple>
                                     <option value="">Ingrédients</option>
 
                                     @foreach ($ingredients as $ingredient)

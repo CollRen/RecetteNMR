@@ -28,5 +28,4 @@ class Recette extends Model
     {
         return $this->hasMany(Etape::class);
     }
-
 }

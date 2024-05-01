@@ -9,7 +9,7 @@
                 <h2 class="text-2xl font-semibold mb-4">Modifier les étapes</h2>
 
                 <div class="mb-4">
-                    <form method="POST" action="{{ route('etapes.update', $etape->id) }}">
+                    <form method="POST" action="{{ route('etape.update', $etape->id) }}">
                         @csrf
                         @method('PUT')
 

@@ -9,6 +9,8 @@ use App\Http\Controllers\SetLocaleController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\IngredientController;
 use App\Http\Controllers\RecetteController;
+use App\Http\Controllers\EtapeController;
+
 
 
 /*
@@ -26,7 +28,11 @@ Route::get('/lang/{locale}', [SetLocaleController::class, 'index'])->name('lang'
 
 Route::resource("/ingredient", IngredientController::class);
 Route::resource("/recette", RecetteController::class);
+Route::get('/recette/{recette}/add-ingredient', [RecetteController::class, 'createAddIngredient'])->name('createAddIngredient');
+Route::post('/recette/{recette}/add-ingredient', [RecetteController::class, 'storeAddIngredient'])->name('storeAddIngredient');
 Route::resource("/category", CategoryController::class);
+Route::resource("/etape", EtapeController::class);
+
 
 Route::get('/task/create', [TaskController::class, 'create'])->name('task.create');
 Route::post('/task/create', [TaskController::class, 'store'])->name('task.store');
@@ -70,6 +76,9 @@ Route::put('/edit/{category}', [CategoryController::class, 'update'])->name('upd
 Route::delete('/{category}', [CategoryController::class, 'destroy'])->name('delete');
 }); */
 
+/* Route::prefix('/category')->name('category.')->group(function () {
+}); */
+
 
 Route::get('/password/forgot', [UserController::class, 'forgot'])->name('user.forgot');
 Route::post('/password/forgot', [UserController::class, 'email'])->name('user.email');
@@ -85,10 +94,7 @@ Route::get('/', function () {
 })->name("welcome");
 
 
-Route::get('forfait', function () {
-    return view('forfait');
-    // return view('index');
-})->name("forfait");
+
 
 
 Route::get('contact', function () {
@@ -96,10 +102,7 @@ Route::get('contact', function () {
     // return view('index');
 })->name("contact");
 
-Route::get('about', function () {
-    return view('about');
-    // return view('index');
-})->name("about");
+
 
 
 

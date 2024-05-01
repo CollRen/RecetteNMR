@@ -94,10 +94,7 @@ Route::get('/', function () {
 })->name("welcome");
 
 
-Route::get('recette', function () {
-    return view('recette');
-    // return view('index');
-})->name("recette");
+
 
 
 Route::get('contact', function () {
@@ -105,10 +102,7 @@ Route::get('contact', function () {
     // return view('index');
 })->name("contact");
 
-Route::get('recettes', function () {
-    return view('recettes');
-    // return view('index');
-})->name("recettes");
+
 
 
 

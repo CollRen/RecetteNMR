@@ -14,7 +14,7 @@
 
           <a href="/"
               class="text-sm font-semibold leading-6  clr-sec2 {{ request()->is('/') ? 'text-red-900 underline' : 'text-gray-900' }}">@lang('Home')</a>
-          <a href="/recettes"
+          <a href="{{route('recette.index')}}"
               class="text-sm font-semibold leading-6  clr-sec2 {{ request()->is('recettes') ? 'text-red-900 underline' : 'text-gray-900' }}">@lang('Recieps')</a>
           <a href="/contact"
               class="text-sm font-semibold leading-6  clr-sec2 {{ request()->is('contact') ? 'text-red-900 underline' : 'text-gray-900' }}">Contact</a>

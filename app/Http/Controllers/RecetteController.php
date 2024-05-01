@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\StorerecetteRequest;
 use App\Http\Requests\UpdaterecetteRequest;
+use App\Models\Etape;
 use App\Models\recette;
 use App\Models\Category;
 use App\Models\Ingredient;
@@ -62,6 +63,7 @@ class RecetteController extends Controller
         $this->recette = Recette::find($recette->id);
         $this->category = Category::find($recette->category_id);
         $this->auteur = User::find($recette->user_id)->name;
+        // $this->etapes = Etape::find($recette->id, 'recette_id')->description;
 
         return view('recette.show', $this->data);
     }

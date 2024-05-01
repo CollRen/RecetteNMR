@@ -27,5 +27,4 @@ class recette extends Model
     {
         return $this->hasMany(Etape::class);
     }
-
 }

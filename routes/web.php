@@ -29,7 +29,7 @@ Route::get('/lang/{locale}', [SetLocaleController::class, 'index'])->name('lang'
 Route::resource("/ingredient", IngredientController::class);
 Route::resource("/recette", RecetteController::class);
 Route::resource("/category", CategoryController::class);
-Route::resource("/etapes", EtapeController::class);
+Route::resource("/etape", EtapeController::class);
 
 
 Route::get('/task/create', [TaskController::class, 'create'])->name('task.create');

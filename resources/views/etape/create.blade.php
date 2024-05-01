@@ -9,7 +9,7 @@
                 <h2 class="text-2xl font-semibold mb-4">Ajouter une description des étapes</h2>
 
                 <div class="mb-4">
-                    <form method="POST" action="{{ route('etapes.store') }}">
+                    <form method="POST" action="{{ route('etape.store') }}">
                         @csrf
 
                         <div class="mb-6">

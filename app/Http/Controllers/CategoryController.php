@@ -4,16 +4,21 @@ namespace App\Http\Controllers;
 
 use App\Models\Category;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\App;
 
 class CategoryController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
-    public function index()
-    {
-        //
-    }
+
+     public function index()
+     {
+         $categories = Category::all();
+         $locale = App::getLocale(); // Récupérer la langue actuelle
+         return view('category.index', compact('categories', 'locale'));
+     }
+    
 
     /**
      * Show the form for creating a new resource.
@@ -27,24 +32,31 @@ class CategoryController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
-    {
+/**
+ * Store a newly created resource in storage.
+ */
+public function store(Request $request)
+{
+    $request->validate([
+        'category_en' => 'required|max:30',
+        'category_fr' => 'required|max:30',
+    ]);
 
-        $request->validate([
-            'category_en' => 'required|max:30',
-            'category_fr' => 'required|max:30',
-        ]);
-        $category = [
-            'en' => $request->category_en,
-/*             'fr' => $request->category_fr, */
-        ];
-        if($request->category_fr != null) { $category = $category + ['fr' => $request->category_fr];};
-        
-        Category::create([
-            'nom' => $category
-        ]);
-        return back()->withSuccess('Category created successfully!');
+    $category = [
+        'en' => $request->category_en,
+    ];
+
+    if ($request->category_fr != null) { 
+        $category['fr'] = $request->category_fr;
     }
+
+    Category::create([
+        'nom' => $category
+    ]);
+
+    return redirect()->route('category.index')->withSuccess('Category created successfully!');
+}
+
     
 
     /**

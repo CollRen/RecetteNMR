@@ -26,6 +26,8 @@ Route::get('/lang/{locale}', [SetLocaleController::class, 'index'])->name('lang'
 
 Route::resource("/ingredient", IngredientController::class);
 Route::resource("/recette", RecetteController::class);
+Route::get('/recette/{recette}/add-ingredient', [RecetteController::class, 'createAddIngredient'])->name('createAddIngredient');
+Route::post('/recette/{recette}/add-ingredient', [RecetteController::class, 'storeAddIngredient'])->name('storeAddIngredient');
 Route::resource("/category", CategoryController::class);
 
 Route::get('/task/create', [TaskController::class, 'create'])->name('task.create');
@@ -68,6 +70,9 @@ Route::get('/{category}', [CategoryController::class, 'show'])->name('show');
 Route::get('/edit/{category}', [CategoryController::class, 'edit'])->name('edit');
 Route::put('/edit/{category}', [CategoryController::class, 'update'])->name('update');
 Route::delete('/{category}', [CategoryController::class, 'destroy'])->name('delete');
+}); */
+
+/* Route::prefix('/category')->name('category.')->group(function () {
 }); */
 
 

@@ -51,6 +51,7 @@ class Controller extends BaseController
     public function __construct()
     {
         $this->middleware(function ($request, $next) {
+            $this->locale = session()->get('locale') ?? $this->locale = 'fr';
             // You can perform actions here that run for all controllers that extend this base controller.
             return $next($request);
         });

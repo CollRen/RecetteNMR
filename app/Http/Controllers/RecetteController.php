@@ -7,6 +7,7 @@ use App\Http\Requests\UpdaterecetteRequest;
 use App\Models\recette;
 use App\Models\Category;
 use App\Models\Ingredient;
+use App\Models\User;
 
 class RecetteController extends Controller
 {
@@ -15,7 +16,12 @@ class RecetteController extends Controller
      */
     public function index()
     {
-        //
+        $this->categories = Category::all();
+        $this->recettes = Recette::all();
+        $this->users = User::all();
+
+        return view('recette.index', $this->data);
+
     }
 
     /**
@@ -41,8 +47,6 @@ class RecetteController extends Controller
         $recette->description = $request->description;
         $recette->temps_cuisson = $request->temps_cuisson;
         $recette->temps_preparation = $request->temps_preparation;
-        $recette->difficulte = $request->difficulte;
-        $recette->prix = $request->prix;
         $recette->save();
 
         $recette->categories()->attach($categories);
@@ -55,7 +59,11 @@ class RecetteController extends Controller
      */
     public function show(recette $recette)
     {
-        //
+        $this->recette = Recette::find($recette->id);
+        $this->category = Category::find($recette->category_id);
+        $this->auteur = User::find($recette->user_id)->name;
+
+        return view('recette.show', $this->data);
     }
 
     /**

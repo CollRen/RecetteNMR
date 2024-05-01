@@ -1,55 +1,53 @@
 @extends('partials.base')
-@section('title', 'Recette')
+@section('title', $recette['titre'])
+
 @section('content')
-    <h1>Recette</h1>
-    <div class="flex flex-wrap  justify-center">
-        <div>
-            <div class="relative flex flex-col min-w-0 rounded break-words border bg-white border-1 border-gray-300 mb-5">
-                <div>
-                    <h5>{{ $recette->title }}</h5>
-                </div>
-                <div>
-                    <p class="mb-0">{{ $recette->description }}</p>
-                    <ul class="list-unstyled">
-                        <li><strong>Completed:</strong> {{ $recette->completed ? 'Yes' : 'No' }}</li>
-                        <li><strong>Temps de préparation:</strong> {{ $recette->due_date }}</li>
-{{--                         <li><strong>Author:</strong> {{ $recette->user->name }}</li> pour l'instant ça marche pas --}}
-                        <li><strong>Ingredient:</strong>
-                            {{ $recette->ingredient ? $recette->ingredient->ingredient[app()->getLocale()] ?? $recette->ingredient->ingredient['en'] : '' }}
-                        </li>
-                    </ul>
-                </div>
-                <div class="py-3 px-6 bg-gray-200 border-t-1 border-gray-300 flex justify-between">
-                    <a href="{{ route('recette.edit', $recette->id) }}" class="inline-block align-middle text-center select-none border font-normal whitespace-no-wrap rounded  no-underline py-1 px-2 leading-tight text-xs  text-green-500 border-green-500 hover:bg-green-500 hover:text-white bg-white hover:green-600">Edit</a>
-                    <button type="button" class="inline-block align-middle text-center select-none border font-normal whitespace-no-wrap rounded  no-underline py-1 px-2 leading-tight text-xs  text-red-600 border-red-600 hover:bg-red-600 hover:text-white bg-white hover:bg-red-700" data-bs-toggle="modal"
-                        data-bs-target="#deleteModal">
-                        Delete
-                    </button>
-                </div>
-            </div>
+{{--         <div class="relative h-96 mb-8">
+            <img src="{{ Vite::asset('resources/img/legumes.jpg') }}" alt="Recette" class="absolute inset-0 w-full h-full object-cover object-center rounded-lg">
+        </div> --}}
+    <div class="mx-auto max-w-2xl py-8 sm:py-12 lg:py-4">
+
+{{--         <div class="mt-8">
+            <p>La vidéo complète de la préparation de la recette</p>
+        </div> --}}
+        <div class="mt-8 flex justify-center gap-x-6">
+            <button class="rounded-md bg-clr-pri2 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-clr-sec2 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-clr-pri2">Sauvegarder</button>
+            <button class="rounded-md bg-clr-pri2 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-clr-sec2 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-clr-pri2">Imprimer</button>
+            <button class="rounded-md bg-clr-pri2 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-clr-sec2 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-clr-pri2">Partager</button>
         </div>
-    </div>
-    {{-- Bootstrap Modal --}}
-    <div class="modal opacity-0" id="deleteModal" tabindex="-1" aria-labelledby="deleteModalLabel" aria-hidden="true">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h1 class="modal-title fs-5 text-red-600" id="DeleteModalLabel">DELETE</h1>
-                    <button type="button"  data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body">
-                    Are you sure to delete this recette?
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="inline-block align-middle text-center select-none border font-normal whitespace-no-wrap rounded  no-underline py-1 px-2 leading-tight text-xs  bg-gray-600 text-white hover:bg-gray-700" data-bs-dismiss="modal">Cancel</button>
-                    <form method="POST">
-                        @csrf
-                        @method('DELETE')
-                        <button type="submit" class="inline-block align-middle text-center select-none border font-normal whitespace-no-wrap rounded  no-underline py-1 px-2 leading-tight text-xs  bg-red-600 text-white hover:bg-red-700">Delete</button>
-                    </form>
-                </div>
+        <div class="mt-8">
+            <h2 class="text-xl font-semibold">Informations :</h2>
+            <ul class="mt-4 flex justify-between">
+                <li>Temps de préparation: {{ $recette['temps_preparation'] }} minutes</li>
+                <li>Temps de cuisson: {{ $recette['temps_cuisson'] }} minutes</li>
+                <li>Auteur: {{ $auteur }}</li>
+            </ul>
+        </div>
+        <div class="mt-8">
+            <h2 class="text-xl font-semibold">Ingrédients :</h2>
+            <div class="mt-4 flex items-center">
+                <span>Nombre de personnes:</span>
+                <button class="ml-2 px-2 py-1 border border-gray-300 rounded">-</button>
+                <span class="px-2 py-1 border border-gray-300">1</span>
+                <button class="px-2 py-1 border border-gray-300 rounded">+</button>
             </div>
+            <ul class="mt-4">
+                <li>Ingrédient 1: X unités</li>
+                <li>Ingrédient 2: Y unités</li>
+            </ul>
+        </div>
+
+        <div class="mt-8">
+            <h2 class="text-xl font-semibold">Étapes de préparation :</h2>
+            <ol class="list-decimal pl-6 mt-4">
+                <li>Étape 1</li>
+                <li>Étape 2</li>
+                <li>Étape 3</li>
+            </ol>
+        </div>
+        <div class="mt-8 flex justify-center gap-x-6">
+            <button class="rounded-md bg-clr-pri2 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-clr-sec2 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-clr-pri2">Modifier la recette</button>
+            <button class="rounded-md bg-red-600 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-red-700 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-red-600">Supprimer la recette</button>
         </div>
     </div>
 @endsection
-

@@ -31,7 +31,7 @@ Route::resource("/recette", RecetteController::class);
 Route::get('/recette/{recette}/add-ingredient', [RecetteController::class, 'createAddIngredient'])->name('createAddIngredient');
 Route::post('/recette/{recette}/add-ingredient', [RecetteController::class, 'storeAddIngredient'])->name('storeAddIngredient');
 Route::resource("/category", CategoryController::class);
-Route::resource("/etapes", EtapeController::class);
+Route::resource("/etape", EtapeController::class);
 
 
 Route::get('/task/create', [TaskController::class, 'create'])->name('task.create');
